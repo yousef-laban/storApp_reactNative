@@ -5,8 +5,9 @@ import { ListScroll, Title } from "../../styles";
 import ProductItem from "./ProductItem";
 import { ScrollView } from "react-native";
 
-const ProductList = () => {
-  const shop = useSelector((state) => state.shops.shops[0]);
+const ProductList = ({ route }) => {
+  // const shop = useSelector((state) => state.shops.shops[0]);
+  const shop = route.params.shop;
   const products = useSelector((state) => state.products.products);
 
   const loading = useSelector((state) => state.products.loading);
@@ -17,8 +18,6 @@ const ProductList = () => {
         <Spinner color="blue" />
       </Center>
     );
-
-  console.log(shop);
 
   const filteredList = products
     .filter((product) => product.shopId === +shop.id)

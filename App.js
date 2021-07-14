@@ -3,23 +3,21 @@ import { NativeBaseProvider } from "native-base";
 import { BackGroundStyling } from "./styles";
 import { NavigationContainer } from "@react-navigation/native";
 
+//components
+import StackNavigator from "./components/Navigation/StackNavigator";
+
 // Redux
 import { Provider } from "react-redux";
 import store from "./store/index";
-
-//components
-import Home from "./components/Home";
-import ShopList from "./components/shopsComponents/ShopList";
-import ProductList from "./components/ProductComponents/ProductList";
 
 export default function App() {
   return (
     <Provider store={store}>
       <NativeBaseProvider>
         <BackGroundStyling>
-          {/* <Home /> */}
-          {/* <ShopList /> */}
-          <ProductList />
+          <NavigationContainer>
+            <StackNavigator />
+          </NavigationContainer>
         </BackGroundStyling>
       </NativeBaseProvider>
     </Provider>

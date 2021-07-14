@@ -7,16 +7,15 @@ export const ImageBackground = styled.Image`
 `;
 
 export const TopStyling = styled.View`
-  height: 20%;
   margin: auto;
-  margin-top: 100px;
+  /* margin-top: 100px; */
 `;
 
 export const Title = styled.Text`
   color: #dfeeea;
   font-size: 38px;
   text-align: center;
-  margin: 50px;
+  padding: 50px;
 `;
 
 export const BackGroundStyling = styled.View`
@@ -26,4 +25,9 @@ export const BackGroundStyling = styled.View`
 
 export const CenterdText = styled.Text`
   margin: auto;
+`;
+
+export const StyledButton = styled.Button`
+  color: red;
+  background-color: #a7c4bc;
 `;

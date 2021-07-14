@@ -1,11 +1,11 @@
 import React from "react";
 
-import { TouchableOpacity, View } from "react-native";
+import { View } from "react-native";
 import { Box, Image } from "native-base";
 import { CenterdText } from "../../styles";
 import { SHOP_DETAIL } from "../Navigation/types";
 
-const ShopItem = ({ shop, navigation }) => {
+const CartItem = ({ item }) => {
   return (
     <Box
       bg="#DFEEEA"
@@ -14,24 +14,24 @@ const ShopItem = ({ shop, navigation }) => {
       maxWidth="95%"
       height="30%"
       flexDirection="row"
+      margin={1}
     >
-      {/* <TouchableOpacity onPress={() => navigation.navigate(SHOP_DETAIL)}> */}
       <Image
         source={{
-          uri: shop.url,
+          uri: item.url,
         }}
         alt="image base"
         flex="1"
       />
-      {/* </TouchableOpacity> */}
 
-      <View flex="1" padding={5}>
-        <CenterdText onPress={() => navigation.navigate(SHOP_DETAIL, { shop })}>
-          {shop.name}
-        </CenterdText>
+      <View flex="2" padding={5}>
+        <CenterdText>Item : {item.name}</CenterdText>
+        <CenterdText>Price : {item.price} JOD</CenterdText>
+        <CenterdText>Quantity : {item.quantity}</CenterdText>
+        <CenterdText>Total : {item.quantity * item.price} JOD</CenterdText>
       </View>
     </Box>
   );
 };
 
-export default ShopItem;
+export default CartItem;

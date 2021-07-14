@@ -4,11 +4,9 @@ import { useSelector } from "react-redux";
 import ShopItem from "./ShopItem";
 import { Title } from "../../styles";
 
-const ShopList = () => {
+const ShopList = ({ navigation }) => {
   const shops = useSelector((state) => state.shops.shops);
   const loading = useSelector((state) => state.shops.loading);
-
-  console.log(shops);
 
   if (loading)
     return (
@@ -18,7 +16,7 @@ const ShopList = () => {
     );
 
   const filteredList = shops.map((shop) => (
-    <ShopItem key={shop.id} shop={shop} />
+    <ShopItem key={shop.id} shop={shop} navigation={navigation} />
   ));
 
   return (
