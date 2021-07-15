@@ -9,3 +9,7 @@ export const FETCH_SHOPS = "FETCH_SHOPS";
 export const CREATE_SHOP = "CREATE_SHOP";
 // Auth actions
 export const SET_USER = "SET_USER";
+//cart
+export const ADD_TO_CART = "ADD_TO_CART";
+export const CHECK_OUT = "CHECK_OUT";
+export const REMOVE_FROM_CART = "REMOVE_FROM_CART";

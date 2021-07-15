@@ -1,15 +1,15 @@
 import React from "react";
-
 import { createStackNavigator } from "@react-navigation/stack";
+import * as types from "./types";
 
 // components
 import Home from "../Home";
 import ProductList from "../ProductComponents/ProductList";
 import ShopList from "../shopsComponents/ShopList";
-
-import * as types from "./types";
 import CartList from "../CartComponents/CartList";
 import CartIcon from "../CartComponents/CartIcon";
+import SignIn from "../AuthComponent/SignIn";
+import SignUp from "../AuthComponent/SignUp";
 
 const StackNavigator = () => {
   const { Screen, Navigator } = createStackNavigator();
@@ -20,6 +20,7 @@ const StackNavigator = () => {
       screenOptions={{
         headerTransparent: true,
         headerTintColor: " #dfeeea ",
+        headerRight: () => <CartIcon />,
         cardStyle: {
           backgroundColor: "#2f5d62",
         },
@@ -41,7 +42,7 @@ const StackNavigator = () => {
         options={({ route }) => ({
           // title: route.params.shop.name,
           title: "",
-          headerRight: () => <CartIcon />,
+          // headerRight: () => <CartIcon />,
         })}
       />
 
@@ -49,6 +50,18 @@ const StackNavigator = () => {
         name={types.CART_LIST}
         component={CartList}
         options={{ title: "Cart" }}
+      />
+
+      <Screen
+        name={types.SIGN_IN}
+        component={SignIn}
+        options={{ headerShown: false }}
+      />
+
+      <Screen
+        name={types.SIGN_UP}
+        component={SignUp}
+        options={{ headerShown: false }}
       />
     </Navigator>
   );

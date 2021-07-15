@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Button, View } from "react-native";
 import { Box, Image } from "native-base";
 import { CenterdText } from "../../styles";
 import NumericInput from "react-native-numeric-input";
+import NumaricAdd from "./NumaricAdd";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../store/actions/cartActions";
 
 const ProductItem = ({ product }) => {
+  const [quantity, setQuantity] = useState(0);
+  const dispatch = useDispatch();
+
+  const handelAdd = () => {
+    const newProduct = { quantity, productId: product.id };
+    dispatch(addToCart(newProduct));
+  };
+
   return (
     <Box
       bg="#DFEEEA"
@@ -28,17 +39,11 @@ const ProductItem = ({ product }) => {
       <View flex="1" padding={5}>
         <CenterdText>{product.name}</CenterdText>
         <CenterdText>{product.price} JOD</CenterdText>
-        <CenterdText>
-          <NumericInput
-            flex="1"
-            totalWidth={100}
-            totalHeight={25}
-            rounded
-            minValue={0}
-            onChange={(value) => console.log(value)}
-          />
-          <Button flex="100" margin="auto" title="Add" />
-        </CenterdText>
+        <NumaricAdd
+          setQuantity={setQuantity}
+          quantity={quantity}
+          handelAdd={handelAdd}
+        />
       </View>
     </Box>
   );

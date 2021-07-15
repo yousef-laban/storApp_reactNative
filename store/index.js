@@ -5,9 +5,11 @@ import thunk from "redux-thunk";
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 import { fetchShops } from "./actions/shopsActions";
-store.dispatch(fetchShops());
-
 import { fetchProducts } from "./actions/productActions";
+import { checkForToken } from "./actions/authActions";
+
+store.dispatch(fetchShops());
 store.dispatch(fetchProducts());
+store.dispatch(checkForToken());
 
 export default store;

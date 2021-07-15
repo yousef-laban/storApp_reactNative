@@ -1,4 +1,5 @@
 import styled from "styled-components/native";
+import NumericInput from "react-native-numeric-input";
 
 export const ImageBackground = styled.Image`
   margin: auto;
@@ -30,4 +31,13 @@ export const CenterdText = styled.Text`
 export const StyledButton = styled.Button`
   color: red;
   background-color: #a7c4bc;
+`;
+
+export const NumaricBox = styled.View`
+  flex-direction: row;
+  margin: auto;
+`;
+
+export const AddButton = styled.Button`
+  margin-top: auto;
 `;
