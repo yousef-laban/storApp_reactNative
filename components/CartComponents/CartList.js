@@ -12,7 +12,6 @@ import CartItem from "./CartItem";
 const CartList = ({ navigation }) => {
   const items = useSelector((state) => state.items.items);
   const user = useSelector((state) => state.user.user);
-  console.log(user);
   const products = useSelector((state) => state.products.products);
   const dispatch = useDispatch();
   let total = 0;
@@ -28,7 +27,7 @@ const CartList = ({ navigation }) => {
     });
 
   const handelCheckOut = () => {
-    if (user) dispatch(checkOut());
+    if (user) dispatch(checkOut(items));
     else
       Alert.alert("SIGN IN", "Sign In Please", [
         {

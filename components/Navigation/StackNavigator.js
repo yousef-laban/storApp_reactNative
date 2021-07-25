@@ -19,7 +19,7 @@ const StackNavigator = () => {
       initialRouteName={types.HOME}
       screenOptions={{
         headerTransparent: true,
-        headerTintColor: " #dfeeea ",
+        // headerTintColor: " #dfeeea ",
         headerRight: () => <CartIcon />,
         cardStyle: {
           backgroundColor: "#2f5d62",

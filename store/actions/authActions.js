@@ -50,16 +50,16 @@ export const checkForToken = () => async (dispatch) => {
 };
 
 const setUser = (token) => async (dispatch) => {
-  console.log(token);
   if (token) {
     await AsyncStorage.setItem("myToken", token);
+    instance.defaults.headers.common.Authorization = `Bearer ${token}`;
 
     dispatch({
       type: actionType.SET_USER,
       payload: decode(token),
     });
   } else {
-    await AsyncStorage.removeItem("@MyApp_key");
+    await AsyncStorage.removeItem("myToken");
     dispatch({
       type: actionType.SET_USER,
       payload: null,
